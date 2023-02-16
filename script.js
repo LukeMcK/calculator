@@ -91,14 +91,18 @@ function isNum(num) {
     equation.push(num);
     display.textContent = equation[0];
   } else if (equation.length === 1) {
-    equation[0] = equation[0].concat(num);
+    if (num !== "." || !equation[0].includes(num)) {
+      equation[0] = equation[0].concat(num);
+    }
     display.textContent = equation[0];
   }
   if (equation.length >= 2) {
     if (equation.length === 2) {
       equation.push(num);
     } else {
-      equation[2] = equation[2].concat(num);
+      if (num !== "." || !equation[2].includes(num)) {
+        equation[2] = equation[2].concat(num);
+      }
     }
     display.textContent = equation[2];
   }
